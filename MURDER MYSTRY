@@ -1,0 +1,84 @@
+STEP 1
+![Screenshot 2024-09-28 203037](https://github.com/user-attachments/assets/0bac050f-501b-480b-a053-9141ba9daa75).
+
+STEP 2
+SELECT * FROM person WHERE address_street_name = 'Northwestern Dr' ORDER BY address_number DESC LIMIT 1
+              ![Screenshot 2024-09-28 211212](https://github.com/user-attachments/assets/059d5b7d-c336-4464-9d93-3dbed232418b)
+STEP 3
+SELECT * FROM person WHERE address_street_name = 'Franklin Ave' LIMIT 10
+![Screenshot 2024-09-28 211350](https://github.com/user-attachments/assets/ffcbcc33-4347-4d1a-bb2c-bb1f05b9b92f)
+STEP 4
+SELECT * FROM person WHERE address_street_name = 'Franklin Ave' AND name LIKE '%Annabel%' LIMIT 10
+![Screenshot 2024-09-28 211849](https://github.com/user-attachments/assets/9005b16e-d11e-4687-b2cb-d732fe4cb1dd)
+
+STEP 5
+SELECT * FROM interview WHERE person_id IN (14887,16371) LIMIT 10
+![Screenshot 2024-09-28 211949](https://github.com/user-attachments/assets/ddfb0e54-71da-452f-945f-ca97f552a989)
+
+STEP 6
+SELECT * FROM drivers_license WHERE plate_number LIKE '%H42W%' LIMIT 10
+![Screenshot 2024-09-28 212041](https://github.com/user-attachments/assets/f9f9aa7c-1aa3-4183-b71a-01404f8ee16a)
+
+STEP 7
+SELECT p. * FROM drivers_license as d1 INNER JOIN person as p on d1.id = p.license_id WHERE plate_number LIKE '%H42W%' LIMIT 10
+![Screenshot 2024-09-28 212130](https://github.com/user-attachments/assets/81bc92a8-841a-4487-922d-4c37f27b64d2)
+
+STEP 8
+SELECT p. * FROM drivers_license as d1 INNER JOIN person as p on d1.id = p.license_id INNER JOIN get_fit_now_member as gf on p.id = gf.person_id WHERE plate_number LIKE '%H42W%' LIMIT 10
+![Screenshot 2024-09-28 212218](https://github.com/user-attachments/assets/5fc304e9-5b39-48a6-903a-9bf0dc090639)
+
+STEP 9
+SELECT p. * , gf.* FROM drivers_license as d1 INNER JOIN person as p on d1.id = p.license_id LEFT JOIN get_fit_now_member as gf on p.id = gf.person_id WHERE plate_number LIKE '%H42W%' LIMIT 10
+![Screenshot 2024-09-28 212315](https://github.com/user-attachments/assets/3214a63d-697c-4d7d-8fa8-602d2f166cd0)
+
+![Screenshot 2024-09-28 212331](https://github.com/user-attachments/assets/02deb898-dd3a-412c-a0c9-bcf4a7692ee4)
+
+STEP 10
+SELECT p. * , ci.* FROM drivers_license as d1 INNER JOIN person as p on d1.id = p.license_id INNER JOIN get_fit_now_member as gf on p.id = gf.person_id INNER JOIN get_fit_now_check_in as ci on gf.id = ci.membership_id WHERE plate_number LIKE '%H42W%' AND membership_status = 'gold' LIMIT 10
+![Screenshot 2024-09-28 212442](https://github.com/user-attachments/assets/84ecd6d3-95f3-4094-8fec-26a3c17941c0)
+![Screenshot 2024-09-28 212452](https://github.com/user-attachments/assets/7352f7fd-1e4e-47ea-8438-afbcaa1ff099)
+
+--STEP 11
+SELECT p. * , ci.* FROM drivers_license as d1 INNER JOIN person as p on d1.id = p.license_id INNER JOIN get_fit_now_member as gf on p.id = gf.person_id INNER JOIN get_fit_now_check_in as ci on gf.id = ci.membership_id WHERE plate_number LIKE '%H42W%' AND membership_status = 'gold' AND check_in_date = 20180109 LIMIT 10
+![Screenshot 2024-09-28 212607](https://github.com/user-attachments/assets/103a4abe-3471-4244-afba-b68d1eab24f4)
+![Screenshot 2024-09-28 212617](https://github.com/user-attachments/assets/b10e8d27-3964-40a1-ae32-de7e0cd262a7)
+
+STEP 12
+INSERT INTO solution VALUES (1, 'Jeremy Bowers'); 
+SELECT value FROM solution;
+![Screenshot 2024-09-28 213340](https://github.com/user-attachments/assets/70de6e07-29b8-4c07-a757-dcde8444fac9)
+
+STEP 13
+SELECT *
+FROM interview
+WHERE person_id = "67318";
+![Screenshot 2024-09-28 213506](https://github.com/user-attachments/assets/31fe1044-4d94-4f3a-8689-140a4b6224b4)
+STEP 14
+SELECT *
+FROM drivers_license
+WHERE gender = "female"
+	AND hair_color = "red"
+	AND height BETWEEN 65 AND 67
+	AND car_make = "Tesla"
+	AND car_model = "Model S";
+![Screenshot 2024-09-28 213705](https://github.com/user-attachments/assets/7e260f31-0a2e-43de-a09f-82e6d7f94fa9)
+STEP 15
+SELECT *
+FROM person
+WHERE license_id IN ("202298", "291182", "918773");
+![Screenshot 2024-09-28 213840](https://github.com/user-attachments/assets/e6d72ca0-a3da-438e-b0d7-094a30520864)
+
+STEP 16
+SELECT 
+	person_id, 
+    event_name, 
+    COUNT(*) AS event_count
+FROM facebook_event_checkin
+WHERE person_id IN ("78881", "90700", "99716")
+GROUP BY person_id, event_name;
+![Screenshot 2024-09-28 213944](https://github.com/user-attachments/assets/8a84b5b9-5e85-41d5-b6b8-b4c415ef1ee9)
+
+STEP 17
+INSERT INTO solution VALUES (1, 'Miranda Priestly');
+SELECT value FROM solution;
+![Screenshot 2024-09-28 214108](https://github.com/user-attachments/assets/ccc38605-d1cc-4111-a9da-a9d050635efd)
